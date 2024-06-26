@@ -10,6 +10,9 @@ CORS(app=app)
 
 # Configure OpenAI API key
 openai.api_key = os.getenv('OPENAI_API_KEY')
+if not openai.api_key:
+    raise ValueError("The OPENAI_API_KEY environment variable is not set.")
+# openai.api_key = 'sk-proj-YvIKcI04adywfT3JtVQpT3BlbkFJy1cyTQqTEetYR2FMVyDi'
 
 @app.route('/generate_questions', methods=['POST'])
 def generate_questions():
@@ -47,7 +50,7 @@ def ask_followup():
     transcript = data.get('transcript')
     question = data.get('question')
 
-    client = OpenAI()
+    client = OpenAI(api_key='sk-proj-YvIKcI04adywfT3JtVQpT3BlbkFJy1cyTQqTEetYR2FMVyDi')
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
