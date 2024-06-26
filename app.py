@@ -12,7 +12,6 @@ CORS(app=app)
 openai.api_key = os.getenv('OPENAI_API_KEY')
 if not openai.api_key:
     raise ValueError("The OPENAI_API_KEY environment variable is not set.")
-# openai.api_key = 'sk-proj-YvIKcI04adywfT3JtVQpT3BlbkFJy1cyTQqTEetYR2FMVyDi'
 
 @app.route('/generate_questions', methods=['POST'])
 def generate_questions():
