@@ -49,7 +49,7 @@ def ask_followup():
     transcript = data.get('transcript')
     question = data.get('question')
 
-    client = OpenAI(api_key='sk-proj-YvIKcI04adywfT3JtVQpT3BlbkFJy1cyTQqTEetYR2FMVyDi')
+    client = OpenAI()
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
